@@ -3,7 +3,7 @@
 
 void print_result(const std::vector<int> &A);
 
-bool gen_next_combination(std::vector<int> X, int N, int K);
+bool gen_next_combination(std::vector<int> &X, int N, int K);
 
 int main() {
     int N, K;
@@ -17,31 +17,29 @@ int main() {
         print_result(A);
         ok = gen_next_combination(A, N, K);
     }
-    return EXIT_SUCCESS;
 }
 
-bool gen_next_combination(std::vector<int> X, const int N, const int K) {
+bool gen_next_combination(std::vector<int> &X, const int N, const int K) {
     int i = K; // Xuất phát từ phần tử cuối cùng của tổ hợp
-    while (i > 0 && X[i - 1] == (N - K + i)) {
+    while (i > 0 && X[i - 1] == (N - K + i)) {     //Tìm phần tử X[i]N-K+i
         i--;
     }
-    //Tìm phần tử X[i]N-K+i
     if (i > 0) {
         //Nếu i chưa vượt quá phần tử cuối cùng
-        X[i - 1] = X[i - 1] + 1; //Thay X[i] = X[i] +1
+        X[i - 1]++; //Thay X[i] = X[i] +1
         for (int j = i + 1; j <= K; j++) {
             //Từ phần tử thứ j +1 đến K
-            X[j - 1] = X[i - 1] + j - i; // Thay thế X[j] = X[i] + j – i
+            X[j - 1] = X[i - 1] + 1; // Thay thế X[j] = X[i] + j – i
         }
         return true;
     }
-    return false; //OK =0 nếu đã đến tập con cuối cùng}
+    return false; //OK =0 nếu đã đến tập con cuối cùng
 }
 
 void print_result(const std::vector<int> &A) {
     using namespace std;
     for (const int i: A) {
-        cout << i;
+        cout << i << " ";
     }
     cout << endl;
 }
