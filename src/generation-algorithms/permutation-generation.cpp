@@ -21,15 +21,15 @@ int main() {
 
 bool gen_next_permutation(std::vector<int> &X, const int N) {
     int j = N - 2; // Xuất phát từ phần tử N-1
-    while (j > 0 && X[j] > X[j + 1]) j--; // Tìm j sao cho X[j]<X[j+1]
-    if (j > 0) {
+    while (j >= 0 && X[j] > X[j + 1]) j--; // Tìm j sao cho X[j]<X[j+1]
+    if (j >= 0) {
         // Nếu j chưa vượt quá phần tử cuối cùng
-        int k = N; // Xuất phát từ k = N
+        int k = N - 1; // Xuất phát từ N
         while (X[j] > X[k]) k--; // Tìm k sao cho X[j] <X[k]
         int t = X[j];
         X[j] = X[k];
         X[k] = t; // Đổi chỗ X[j] cho X[k]
-        int r = j + 1, s = N;
+        int r = j + 1, s = N - 1;
         while (r <= s) {
             // Lật ngược đoạn từ j +1 đến N
             t = X[r];
