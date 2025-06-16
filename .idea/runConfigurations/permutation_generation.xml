@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="permutation-generation" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="PTIT_K24DTCN638_DSA_MAJOR_ASSIGNMENT" TARGET_NAME="permutation-generation" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="PTIT_K24DTCN638_DSA_MAJOR_ASSIGNMENT" RUN_TARGET_NAME="permutation-generation">
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
