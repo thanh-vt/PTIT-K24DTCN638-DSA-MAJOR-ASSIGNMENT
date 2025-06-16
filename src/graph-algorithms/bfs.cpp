@@ -4,7 +4,7 @@
 #include <sstream>
 #include <vector>
 
-void DFS(const std::map<int, std::vector<int>> &adj_list, int s);
+void BFS(const std::map<int, std::vector<int>> &adj_list, int s);
 
 int main() {
     using namespace std;
@@ -26,13 +26,15 @@ int main() {
         }
         adj_map[node] = AI;
     }
-    DFS(adj_map, s);
+    BFS(adj_map, s);
 }
 
-void DFS(const std::map<int, std::vector<int>> &adj_list, int s) {
+void BFS(const std::map<int, std::vector<int>> &adj_list, int s) {
     using namespace std;
-    vector visited(adj_list.size(), false);
-
+    map<int, bool> visited;
+    for (const pair<const int, vector<int>>& pair: adj_list) {
+        visited[pair.first] = false;
+    }
     queue<int> queue;
 
     visited[s] = true;

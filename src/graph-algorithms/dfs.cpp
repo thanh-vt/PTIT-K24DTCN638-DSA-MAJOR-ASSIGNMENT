@@ -2,6 +2,7 @@
 #include <map>
 #include <queue>
 #include <sstream>
+#include <stack>
 #include <vector>
 
 void DFS(const std::map<int, std::vector<int>> &adj_list, int s);
@@ -31,23 +32,31 @@ int main() {
 
 void DFS(const std::map<int, std::vector<int>> &adj_list, int s) {
     using namespace std;
-    vector visited(adj_list.size(), false);
+    map<int, bool> visited;
+    for (const pair<const int, vector<int>>& pair: adj_list) {
+        visited[pair.first] = false;
+    }
 
-    queue<int> queue;
+    stack<int> stack;
 
+    cout << s << " ";
     visited[s] = true;
-    queue.push(s);
+    stack.push(s);
 
-    while (!queue.empty()) {
-        s = queue.front();
-        queue.pop();
-        cout << s << " ";
-
+    while (!stack.empty()) {
+        s = stack.top();
+        bool found_next = false;
         for (vector<int> adj = adj_list.at(s); const int n : adj) {
             if (!visited[n]) {
+                found_next = true;
+                cout << n << " ";
                 visited[n] = true;
-                queue.push(n);
+                stack.push(n);
+                break;
             }
+        }
+        if (!found_next) {
+            stack.pop();
         }
     }
 }
