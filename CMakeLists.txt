@@ -10,3 +10,7 @@ add_executable(bfs src/graph-algorithms/bfs.cpp)
 add_executable(dfs src/graph-algorithms/dfs.cpp)
 add_executable(bubble-sort src/sorting/bubble-sort.cpp)
 add_executable(selection-sort src/sorting/selection-sort.cpp)
+add_executable(quick-sort src/sorting/quick-sort.cpp)
+add_executable(heap-sort src/sorting/heap-sort.cpp)
+add_executable(merge-sort src/sorting/merge-sort.cpp)
+

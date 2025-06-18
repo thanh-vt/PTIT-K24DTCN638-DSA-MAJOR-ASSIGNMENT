@@ -15,8 +15,8 @@ int main() {
         A.push_back(num);
     }
     bubble_sort(A);
-    for (int i = 0; i < A.size(); i++) {
-        cout << A[i] << " ";
+    for (const int i : A) {
+        cout << i << " ";
     }
 }
 

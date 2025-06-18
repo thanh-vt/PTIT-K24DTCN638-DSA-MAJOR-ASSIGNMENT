@@ -2,9 +2,7 @@
 #include <sstream>
 #include <vector>
 
-void quick_sort(std::vector<int> &v);
-
-void quick_sort_recursive(std::vector<int> &v, int leftIdx, int rightIdx);
+void quick_sort_recursive(std::vector<int> &v, int l, int r);
 
 int main() {
     using namespace std;
@@ -16,30 +14,31 @@ int main() {
     while (iss >> num) {
         A.push_back(num);
     }
-    quick_sort(A);
-    for (int i = 0; i < A.size(); i++) {
-        cout << A[i] << " ";
+    quick_sort_recursive(A, 0, A.size() - 1);
+    for (const int i : A) {
+        cout << i << " ";
     }
 }
 
-void quick_sort(std::vector<int> &v) {
+void quick_sort_recursive(std::vector<int> &v, const int l, const int r) {
     using namespace std;
-    const int n = v.size();
-    const int pivot = v[0];
-    for (int i = 0; i < n; i++) {
-        int min = v[i];
-        for (int j = i + 1; j < n; j++) {
-            if (v[j] < min) {
-                const int temp = v[j];
-                v[j] = min;
-                min = temp;
-            }
+    const int pivot = v[(l + r) / 2];
+    int i = l, j = r;
+    do {
+        while (v[i] < pivot) {i++;}
+        while (v[j] > pivot) {j--;}
+        if (i <= j) {
+            const int temp = v[i];
+            v[i] = v[j];
+            v[j] = temp;
+            i++;
+            j--;
         }
-        v[i] = min;
+    }while (i <= j);
+    if (i < r) {
+        quick_sort_recursive(v, i, r);
     }
-}
-
-
-
-void quick_sort_recursive(std::vector<int> &v, int leftIdx, int rightIdx) {
+    if (j > l) {
+        quick_sort_recursive(v, l, j);
+    }
 }
