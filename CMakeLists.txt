@@ -8,3 +8,5 @@ add_executable(combination-generation src/generation-algorithms/combination-gene
 add_executable(permutation-generation src/generation-algorithms/permutation-generation.cpp)
 add_executable(bfs src/graph-algorithms/bfs.cpp)
 add_executable(dfs src/graph-algorithms/dfs.cpp)
+add_executable(bubble-sort src/sorting/bubble-sort.cpp)
+add_executable(selection-sort src/sorting/selection-sort.cpp)
