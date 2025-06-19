@@ -14,4 +14,5 @@ add_executable(quick-sort src/sorting/quick-sort.cpp)
 add_executable(heap-sort src/sorting/heap-sort.cpp)
 add_executable(merge-sort src/sorting/merge-sort.cpp)
 add_executable(hanoi-tower src/divide-and-conquer/hanoi-tower.cpp)
+add_executable(knight-s-tour src/backtracking/knight-s-tour.cpp)
 
