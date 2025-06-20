@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 void print_result(const std::vector<int> &A);
@@ -6,16 +7,23 @@ void print_result(const std::vector<int> &A);
 bool gen_next_permutation(std::vector<int> &X, int N);
 
 int main() {
-    int N;
-    std::cin >> N;
-    std::vector<int> A(N);
+    using namespace std;
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
+    int N, M;
+    iss >> N >> M;
+    vector<int> A(N);
     for (int i = 0; i < N; i++) {
-        std::cin >> A[i];
+        cin >> A[i];
     }
+    getline(cin, line);
     bool ok = true;
-    while (ok) {
+    int i = 0;
+    while (ok && i < M) {
         print_result(A);
         ok = gen_next_permutation(A, N);
+        i++;
     }
 }
 

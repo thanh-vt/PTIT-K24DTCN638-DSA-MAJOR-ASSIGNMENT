@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 void print_result(const std::vector<int> &A);
@@ -6,11 +7,15 @@ void print_result(const std::vector<int> &A);
 bool gen_next_combination(std::vector<int> &X, int N, int K);
 
 int main() {
+    using namespace std;
+    string line;
+    getline(cin, line);
+    istringstream iss(line);
     int N, K;
-    std::cin >> N >> K;
-    std::vector<int> A(K);
+    iss >> N >> K;
+    vector<int> A(K);
     for (int i = 0; i < K; i++) {
-        std::cin >> A[i];
+        cin >> A[i];
     }
     bool ok = true;
     while (ok) {
